@@ -1,5 +1,4 @@
-FROM owasp/modsecurity-crs:nginx
+FROM httpd:alpine
 
-COPY ./public-html/ /usr/share/nginx/html
-COPY ./nginx.conf /etc/nginx/nginx.conf
-COPY ./modsecurity.conf /etc/nginx/modsecurity.conf
+COPY ./html/ /usr/local/apache2/htdocs/
+COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf

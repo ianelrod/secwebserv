@@ -1,0 +1,17 @@
+services:
+  revprox:
+    image: owasp/modsecurity-crs:nginx-alpine
+    container_name: revprox
+    hostname: revprox
+    environment:
+      - PROXY_SSL=1
+      - SERVER_NAME=revprox
+      - BACKEND=http://web
+      - PARANOIA=4
+    ports:
+      - "443:443"
+
+  web:
+    build: .
+    container_name: web
+    hostname: web
