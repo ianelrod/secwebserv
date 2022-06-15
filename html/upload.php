@@ -8,7 +8,7 @@
         <h1>File Upload Form</h1>
         <form name="upload" method="POST" enctype="multipart/form-data" action="upload.php">
             <p>Type some text (if you like):<br><input type="text" id="text" name="textline"></p>
-            <p>Please specify a file, or a set of files:<br><input type="file" id="file" name="filedata"</p>
+            <p>Please specify a file, or a set of files:<br><input type="file" id="file" name="myFile"></p>
             <div><input type="submit" value="Send"></div>
         </form>
     </body>
@@ -54,3 +54,5 @@ if (!copy($filepath, $newFilepath )) { // Copy the file, returns false if failed
 unlink($filepath); // Delete the temp file
 
 echo "File uploaded successfully :)";
+
+?>

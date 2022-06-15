@@ -4,7 +4,7 @@
     </head>
     
     <body>
-        <a href="login.html">Login Page</a>
-        <a href="upload.html">Upload Page</a>
+        <a href="login.php">Login Page</a>
+        <a href="upload.php">Upload Page</a>
     </body>
 </html>

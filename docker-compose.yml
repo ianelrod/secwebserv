@@ -7,7 +7,7 @@ services:
       - PROXY_SSL=1
       - SERVER_NAME=revprox
       - BACKEND=http://web
-      - PARANOIA=4
+      - PARANOIA=2
     ports:
       - "443:443"
 
