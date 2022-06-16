@@ -26,7 +26,10 @@ RUN rm /usr/local/apache2/htdocs/index.html
 
 RUN apk add php8 \
             php8-fpm \
-            php8-opcache
+            php8-opcache \
+            php8-fileinfo \
+            php8-session \
+            acl
 
 # example RUN for reference:
 # RUN set -eux; \
@@ -41,6 +44,31 @@ RUN apk add php8 \
 # Or if not, start it manually with php-fpm -y /path/to/php-fpm.conf -c /path/to/custom/php.ini
 # If you don't provide php-fpm with its own php.ini file, the global php.ini will be used. Remember this when you want to include more or less extensions than the CLI or CGI binaries use, or need to alter some other values there.
 
-# run custom httpd-foreground from httpd github to include php launch args
+# copy custom httpd-foreground that includes php launch args
 COPY httpd-foreground /usr/local/bin/
+
+# copy custom php configuration
+COPY php.ini /etc/php8/php.ini
+COPY www.conf /etc/php8/php-fpm.d/www.conf
+
+
+RUN mkdir /var/lib/php8/session \
+    # remove default permissions
+    && chmod -R 0000 /usr/local/apache2/htdocs \
+    && chmod -R -st /usr/local/apache2/htdocs \
+    && chmod -R 0000 /var/lib/php8/session \
+    && chmod -R -st /var/lib/php8/session \
+    # set ownership
+    && chown -R www-data:www-data /var/lib/php8/session \
+    && chown -R www-data:www-data /usr/local/apache2/htdocs \
+    # change permissions for session folder
+    && setfacl -Rm u::rwX /var/lib/php8/session \
+    # && setfacl -dm m::r /var/lib/php8/session \
+    # change permissions for web folder
+    && setfacl -Rm u::rX /usr/local/apache2/htdocs \
+    # change permissions for uploads folder
+    && setfacl -Rm u::rwX /usr/local/apache2/htdocs/uploads
+    # && setfacl -dm m::r /usr/local/apache2/htdocs/uploads
+    
+
 CMD ["httpd-foreground"]

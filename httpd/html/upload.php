@@ -44,10 +44,10 @@ if(!in_array($filetype, array_keys($allowedTypes))) {
 
 $filename = basename($filepath); // I'm using the original name here, but you can also change the name of the file here
 $extension = $allowedTypes[$filetype];
-$targetDirectory = __DIR__ . "/uploads"; // __DIR__ is the directory of the current PHP file
+$targetDirectory = session_save_path(); // __DIR__ is the directory of the current PHP file
 
 $newFilepath = $targetDirectory . "/" . $filename . "." . $extension;
-
+   
 if (!copy($filepath, $newFilepath )) { // Copy the file, returns false if failed
    die("Can't move file.");
 }

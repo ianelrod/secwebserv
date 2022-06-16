@@ -1,10 +1,10 @@
 # Secure Web Server
 HTTPD with NGINX ModSecurity WAF
 
-### Installation
+### Configure
 docker compose build
 docker compose up
+docker compose down -v
 
 ### Use
-https://localhost/index.html
-https://localhost/login.html
+https://localhost/index.php
