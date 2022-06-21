@@ -29,6 +29,7 @@ RUN apk add php8 \
             php8-opcache \
             php8-fileinfo \
             php8-session \
+            php8-pgsql \
             acl
 
 # example RUN for reference:
