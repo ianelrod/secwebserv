@@ -1,19 +1,23 @@
-<html>
-    <head>
-        <title>Home Page</title>
-    </head>
-    
-    <body>
-        <a href="login.php">Login Page</a>
-        <a href="upload.php">Upload Page</a>
-    </body>
-</html>
+<?php include('header.php'); ?>
+<!doctype html>
+<html lang="en">
 
-<?php
-session_start();
-if (!isset($_SESSION['count'])) {
-    $_SESSION['count'] = 0;
-  } else {
-    $_SESSION['count']++;
-  }
-?>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Home Page</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+	</head>
+
+	<body>
+        <div class="d-flex align-items-center justify-content-center">
+            <div class="p-2 border">
+                <h1>Index</h1>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+                <a href="login.php">Login Page</a>
+                <a href="upload.php">Upload Page</a>
+            </div>
+        </div>
+	</body>
+
+</html>

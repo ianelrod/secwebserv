@@ -20,6 +20,7 @@ services:
     build: ./postgres
     container_name: db
     hostname: db
+    command: ["postgres", "-c", "log_statement=all", "-c", "log_destination=stderr"]
     environment:
       POSTGRES_PASSWORD: S63^oXgRT!d&tQ
       PGDATA: /var/lib/postgresql/data/postgres/

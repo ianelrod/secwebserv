@@ -52,7 +52,6 @@ COPY httpd-foreground /usr/local/bin/
 COPY php.ini /etc/php8/php.ini
 COPY www.conf /etc/php8/php-fpm.d/www.conf
 
-
 RUN mkdir /var/lib/php8/session \
     # remove default permissions
     && chmod -R 0000 /usr/local/apache2/htdocs \
@@ -70,6 +69,5 @@ RUN mkdir /var/lib/php8/session \
     # change permissions for uploads folder
     && setfacl -Rm u::rwX /usr/local/apache2/htdocs/uploads
     # && setfacl -dm m::r /usr/local/apache2/htdocs/uploads
-    
 
 CMD ["httpd-foreground"]
