@@ -11,7 +11,7 @@
                 <input type="text" placeholder="Enter Username" name="username" required>
                 <label>Password: </label>
                 <input type="password" placeholder="Enter Password" name="password" required>
-                <button type="submit">Login</button>
+                <button type="submit" name="login">Login</button>
             </div>
         </form>
     </body>
@@ -22,14 +22,14 @@
 $host = "db";
 $port = "5432";
 $dbname = "postgres";
-$user = "postgres";
-$password = "S63^oXgRT!d&tQ"; 
-$connection_string = "host={$host} port={$port} dbname={$dbname} user={$user} password={$password} ";
+$db_user = "postgres";
+$db_pass = "S63^oXgRT!d&tQ"; 
+$connection_string = "host={$host} port={$port} dbname={$dbname} user={$db_user} password={$db_pass}";
 $dbconn = pg_connect($connection_string);
 
-if(true){
+if(isset($_POST['login'])&&!empty($_POST['username'])&&!empty($_POST['password'])){
     
-    $sql ="select * from postgres.users where username = '".pg_escape_string($_POST['username'])."' and password ='".crypt($_POST['password'], password)."'";
+    $sql = "SELECT * FROM users WHERE username='".pg_escape_string($_POST['username'])."' AND password=crypt('".$_POST['password']."', password)";
     $data = pg_query($dbconn,$sql); 
     $login_check = pg_num_rows($data);
     if($login_check > 0){ 

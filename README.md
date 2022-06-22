@@ -9,8 +9,6 @@ HTTPD with NGINX ModSecurity WAF
 
 3. `docker compose up`
 
-isset($_POST['login'])&&!empty($_POST['login'])
-
 ### Credentials
 
 Website login:
