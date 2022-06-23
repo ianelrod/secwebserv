@@ -13,8 +13,8 @@ This project uses HTML, CSS, JavaScript, PHP, and SQL.
 
 ### Configure
 
-`docker compose build`
-`docker compose up |& tee docker.log`
+1. `docker compose build`
+2. `docker compose up |& tee docker.log`
 
 ### Credentials
 
@@ -26,9 +26,9 @@ postgres:S63^oXgRT!d&tQ
 
 ### Use
 
-Please navigate to https://localhost/
+Navigate to https://localhost/
 
 ### Remove
 
-`docker compose down -v`
-`docker image prune -a` (remove unreferenced dangling images)
+1. `docker compose down -v`
+2. `docker image prune -a` (remove unreferenced dangling images)
