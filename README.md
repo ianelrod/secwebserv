@@ -8,6 +8,7 @@ If I were to improve upon this design, I would do:
 2. Registration system
 3. Restrict upload functionality to logged in users
 4. Diagnose and better control WAF false positives
+5. Store file upload and session management in Postgres
 
 This project uses HTML, CSS, JavaScript, PHP, and SQL.
 
