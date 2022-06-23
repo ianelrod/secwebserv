@@ -6,6 +6,7 @@ COPY ./httpd.conf /usr/local/apache2/conf/httpd.conf
 
 # custom config
 RUN rm /usr/local/apache2/htdocs/index.html
+RUN mkdir /usr/local/apache2/htdocs/uploads
 
 # install php dependencies
 #RUN apk add build-base \

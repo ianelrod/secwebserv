@@ -1,6 +1,12 @@
 <?php
 session_start();
 
+header('X-Frame-Options: SAMEORIGIN');
+header('X-XSS-Protection: 1; mode=block');
+header('Strict-Transport-Security: max-age=31536000; includeSubDomains; preload');
+header('Expect-CT: enforce, max-age=300, report-uri=\'https://lmgtfy.app/?q=you%27re+out+of+luck\'');
+header('X-Content-Type-Options: nosniff');
+
 if (!isset($_SESSION['CREATED'])) {
     $_SESSION['CREATED'] = time();
 } else if (time() - $_SESSION['CREATED'] > 1800) {

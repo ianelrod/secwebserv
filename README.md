@@ -9,13 +9,12 @@ If I were to improve upon this design, I would do:
 3. Restrict upload functionality to logged in users
 4. Diagnose and better control WAF false positives
 
+This project uses HTML, CSS, JavaScript, PHP, and SQL.
+
 ### Configure
 
-1. Create directory "uploads" under "httpd/html"
-
-2. `docker compose build`
-
-3. `docker compose up |& tee docker.log`
+`docker compose build`
+`docker compose up |& tee docker.log`
 
 ### Credentials
 
@@ -31,6 +30,5 @@ Please navigate to https://localhost/
 
 ### Remove
 
-1. `docker compose down -v`
-
-2. `docker image prune -a` (remove unreferenced dangling images)
+`docker compose down -v`
+`docker image prune -a` (remove unreferenced dangling images)
